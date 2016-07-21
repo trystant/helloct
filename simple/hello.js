@@ -1,5 +1,5 @@
 var SphereClient = require('sphere-node-sdk').SphereClient
-var Config = require('./config.js')
+var Config = require('../config.js')
 
 var argv = require('minimist')(process.argv.slice(2))
 
