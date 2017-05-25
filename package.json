@@ -1,6 +1,6 @@
 {
-  "name": "sphere-hello-api-nodejs",
-  "description": "Get started using the SPHERE.IO API with Node.js",
+  "name": "hello-api-nodejs",
+  "description": "Get started using the commercetools API with Node.js",
   "tags": [
     "sphere",
     "sphereio",
@@ -10,14 +10,14 @@
     "sdk",
     "hello"
   ],
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
-    "name": "Nicola Molinari",
-    "email": "nicola.molinari@commercetools.de"
+    "name": "Evan Bonertz",
+    "email": "evan.bonertz@commercetools.com"
   },
   "private": false,
   "engines": {
-    "node": ">= 0.10.x"
+    "node": ">= 7.0.x"
   },
   "scripts": {
     "start": "node hello.js",

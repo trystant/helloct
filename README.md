@@ -1,19 +1,16 @@
-![SPHERE.IO icon](https://admin.sphere.io/assets/images/sphere_logo_rgb_long.png)
-
 # Node.js Hello API
 
-[![Build Status](https://travis-ci.org/sphereio/sphere-hello-api-nodejs.svg?branch=master)](https://travis-ci.org/sphereio/sphere-hello-api-nodejs)
+Simple Node.js based application that fetches customers and products from a commercetools project.
 
-This repo contains some example to show how easy is to use the SPHERE.IO API.
+#Setup
+First install the latest version of node to your system
+Copy your Client Id and Client Secret from the commercetools Admin Center and insert into the config.js file.
 
-**Make sure to have some Products and Categories in your project if you want to see something**
+Clone this repository and run the following commands
 
-Examples:
-- `simple` fetch some products using a command-line like script
-- `express` starter kit using an Express.js application
 
-Create the `config` first and provide your project credentials
+```
+$ npm install
+$ node index.js
 
-```bash
-$ ./create_config.sh
 ```
