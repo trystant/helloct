@@ -2,7 +2,7 @@
 
 Simple Node.js based application that fetches customers and products from a commercetools project.
 
-#Setup
+# Setup
 First install the latest version of node to your system
 Copy your Client Id, Client Secret and Project Key from the commercetools Admin Center and insert into the config.js file.
 
