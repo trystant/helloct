@@ -1,23 +1,56 @@
-var SphereClient = require('sphere-node-sdk').SphereClient
-var Config = require('./config.js')
-var client = new SphereClient(Config)
+var createClient = require('@commercetools/sdk-client').createClient
+var createAuthMiddlewareForClientCredentialsFlow = require('@commercetools/sdk-middleware-auth').createAuthMiddlewareForClientCredentialsFlow
+var createHttpMiddleware = require('@commercetools/sdk-middleware-http').createHttpMiddleware
+var createRequestBuilder = require('@commercetools/api-request-builder').createRequestBuilder
 
-client.customers.fetch()
-.then(function (result){
-    console.log(`Customers: ${JSON.stringify(result)}`);
-    process.exitCode = 1;
+var authMiddleware = createAuthMiddlewareForClientCredentialsFlow({
+  host: 'https://auth.sphere.io',
+  projectKey: 'down-under',
+  credentials: {
+    clientId: 'mKPAWp0Yy2-CMnXTGCykFbqr',
+    clientSecret: 'DjItbv4ZQvMiSQG5PqWOQCL9uTGh4pSZ',
+  },
 })
-.catch(function (err){
-  console.error(err)
-  process.exit(1)
-});
 
-client.productProjections.fetch()
-.then(function (result){
-  console.log(`Products: ${JSON.stringify(result)}`);
-  process.exitCode = 1;
-  })
-.catch(function (err){
-  console.error(err)
-  process.exit(1)
-});
+var httpMiddleware = createHttpMiddleware({
+  host: 'https://api.sphere.io',
+})
+
+var client = createClient({
+  middlewares: [
+    authMiddleware,
+    httpMiddleware
+  ],
+})
+
+var requestCustomers = {
+  uri: '/down-under/customers',
+  method: 'GET'
+}
+
+client.execute(requestCustomers)
+      .then(function (response){
+        var customers = response.body.results
+        console.log(customers);
+        process.exitCode = 1;
+      })
+      .catch(function (err){
+         console.error(err)
+         process.exitCode = 1;
+       });
+
+var requestProducts = {
+  uri: '/down-under/product-projections',
+  method: 'GET'
+}
+
+client.execute(requestProducts)
+      .then(function (response){
+        var products = response.body.results;
+        console.log(products);
+        process.exitCode = 1;
+      })
+      .catch(function (err){
+        console.error(err)
+        process.exitCode = 1;
+      });

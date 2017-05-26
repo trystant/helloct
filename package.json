@@ -24,7 +24,8 @@
     "test": "node hello.js --expects 5"
   },
   "dependencies": {
-    "minimist": "latest",
-    "sphere-node-sdk": "latest"
+    "@commercetools/sdk-client": "^1.4.0",
+    "@commercetools/sdk-middleware-auth": "latest",
+    "@commercetools/sdk-middleware-http": "^2.1.1"
   }
 }
