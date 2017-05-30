@@ -5,10 +5,10 @@ var createRequestBuilder = require('@commercetools/api-request-builder').createR
 
 var authMiddleware = createAuthMiddlewareForClientCredentialsFlow({
   host: 'https://auth.sphere.io',
-  projectKey: 'down-under',
+  projectKey: '',
   credentials: {
-    clientId: 'mKPAWp0Yy2-CMnXTGCykFbqr',
-    clientSecret: 'DjItbv4ZQvMiSQG5PqWOQCL9uTGh4pSZ',
+    clientId: '',
+    clientSecret: '',
   },
 })
 
