@@ -10,18 +10,17 @@
     "sdk",
     "hello"
   ],
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Evan Bonertz",
     "email": "evan.bonertz@commercetools.com"
   },
   "private": false,
   "engines": {
-    "node": ">= 7.0.x"
+    "node": "8.0.0"
   },
   "scripts": {
-    "start": "node hello.js",
-    "test": "node hello.js --expects 5"
+    "start": "node index.js"
   },
   "dependencies": {
     "@commercetools/sdk-client": "^1.4.0",
