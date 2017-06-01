@@ -3,7 +3,7 @@ var createAuthMiddlewareForClientCredentialsFlow = require('@commercetools/sdk-m
 var createHttpMiddleware = require('@commercetools/sdk-middleware-http').createHttpMiddleware
 var createRequestBuilder = require('@commercetools/api-request-builder').createRequestBuilder
 
-var authMiddleware = createAuthMiddlewareForClientCredentialsFlow({
+const authMiddleware = createAuthMiddlewareForClientCredentialsFlow({
   host: 'https://auth.sphere.io',
   projectKey: '',
   credentials: {
@@ -12,45 +12,45 @@ var authMiddleware = createAuthMiddlewareForClientCredentialsFlow({
   },
 })
 
-var httpMiddleware = createHttpMiddleware({
+const httpMiddleware = createHttpMiddleware({
   host: 'https://api.sphere.io',
 })
 
-var client = createClient({
+const client = createClient({
   middlewares: [
     authMiddleware,
     httpMiddleware
   ],
 })
 
-var requestCustomers = {
+const requestCustomers = {
   uri: '/down-under/customers',
   method: 'GET'
 }
 
 client.execute(requestCustomers)
-      .then(function (response){
+      .then((response) => {
         var customers = response.body.results
         console.log(customers);
         process.exitCode = 1;
       })
-      .catch(function (err){
+      .catch((err) => {
          console.error(err)
          process.exitCode = 1;
        });
 
-var requestProducts = {
+const requestProducts = {
   uri: '/down-under/product-projections',
   method: 'GET'
 }
 
 client.execute(requestProducts)
-      .then(function (response){
+      .then((response) => {
         var products = response.body.results;
         console.log(products);
         process.exitCode = 1;
       })
-      .catch(function (err){
+      .catch((err) => {
         console.error(err)
         process.exitCode = 1;
       });

@@ -1,5 +1,5 @@
 {
-  "name": "hello-api-nodejs",
+  "name": "helloct",
   "description": "Get started using the commercetools API with Node.js",
   "tags": [
     "sphere",
@@ -10,7 +10,7 @@
     "sdk",
     "hello"
   ],
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": {
     "name": "Evan Bonertz",
     "email": "evan.bonertz@commercetools.com"
@@ -23,6 +23,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "@commercetools/api-request-builder": "^3.1.1",
     "@commercetools/sdk-client": "^1.4.0",
     "@commercetools/sdk-middleware-auth": "latest",
     "@commercetools/sdk-middleware-http": "^2.1.1"
