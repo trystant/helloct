@@ -1,8 +1,7 @@
 import { createClient } from '@commercetools/sdk-client'
 import { createAuthMiddlewareForClientCredentialsFlow } from '@commercetools/sdk-middleware-auth'
 import { createHttpMiddleware } from '@commercetools/sdk-middleware-http'
-// import { createRequestBuilder } from '@commercetools/api-request-builder'
-import { config } from './config.js'
+import config  from './../config.js'
 
 const authMiddleware = createAuthMiddlewareForClientCredentialsFlow(config)
 
@@ -22,29 +21,20 @@ const requestCustomers = {
   method: 'GET'
 }
 
-client.execute(requestCustomers)
-      .then((response) => {
-        var customers = response.body.results
-        console.log(customers);
-        process.exitCode = 1;
-      })
-      .catch((err) => {
-         console.error(err)
-         process.exitCode = 1;
-       });
-
 const requestProducts = {
   uri: '/down-under/product-projections',
   method: 'GET'
 }
 
-client.execute(requestProducts)
-      .then((response) => {
-        var products = response.body.results;
-        console.log(products);
-        process.exitCode = 1;
-      })
-      .catch((err) => {
-        console.error(err)
-        process.exitCode = 1;
-      });
+const p1 = client.execute(requestCustomers)
+const p2 = client.execute(requestProducts)
+
+Promise.all([p1,p2])
+       .then((responses) => {
+         responses.forEach((response) => {
+          console.log(response.body.results)
+        });
+       })
+       .catch((reason) => {
+         console.log(reason)
+       })

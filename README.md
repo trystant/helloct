@@ -8,9 +8,12 @@ Copy your Client Id, Client Secret and Project Key from the commercetools Admin 
 
 Clone this repository and run the following commands
 
+On build code is transpiled by babel from /src to /dist
+
 
 ```
 $ npm install
-$ node index.js
+$ npm run build
+$ npm run start
 
 ```

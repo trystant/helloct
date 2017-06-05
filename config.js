@@ -1,4 +1,6 @@
-let config = {
+'use strict';
+
+const config = {
   host: 'https://auth.sphere.io',
   projectKey: '',
   credentials: {
@@ -6,4 +8,4 @@ let config = {
     clientSecret: '',
   },
 }
-export default config;
+module.exports = config;
