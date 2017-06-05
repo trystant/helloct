@@ -1,5 +1,5 @@
 {
-  "name": "hello-api-nodejs",
+  "name": "helloct",
   "description": "Get started using the commercetools API with Node.js",
   "tags": [
     "sphere",
@@ -10,22 +10,30 @@
     "sdk",
     "hello"
   ],
-  "version": "0.2.0",
+  "version": "0.2.2",
   "author": {
     "name": "Evan Bonertz",
     "email": "evan.bonertz@commercetools.com"
   },
   "private": false,
   "engines": {
-    "node": ">= 7.0.x"
+    "node": "8.0.0"
   },
   "scripts": {
-    "start": "node hello.js",
-    "test": "node hello.js --expects 5"
+    "start": "node dist/index.js",
+    "build": "babel src -d dist"
   },
   "dependencies": {
+    "@commercetools/api-request-builder": "^3.1.1",
     "@commercetools/sdk-client": "^1.4.0",
     "@commercetools/sdk-middleware-auth": "latest",
     "@commercetools/sdk-middleware-http": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-shell": "^0.6.3",
+    "run-sequence": "^1.2.2"
   }
 }
