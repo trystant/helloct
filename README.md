@@ -10,10 +10,11 @@ Clone this repository and run the following commands
 
 On build code is transpiled by babel from /src to /dist
 
+Gulp runs build and start commands 
 
 ```
 $ npm install
-$ npm run build
-$ npm run start
+
+$ gulp
 
 ```
