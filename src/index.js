@@ -1,16 +1,10 @@
-var createClient = require('@commercetools/sdk-client').createClient
-var createAuthMiddlewareForClientCredentialsFlow = require('@commercetools/sdk-middleware-auth').createAuthMiddlewareForClientCredentialsFlow
-var createHttpMiddleware = require('@commercetools/sdk-middleware-http').createHttpMiddleware
-var createRequestBuilder = require('@commercetools/api-request-builder').createRequestBuilder
+import { createClient } from '@commercetools/sdk-client'
+import { createAuthMiddlewareForClientCredentialsFlow } from '@commercetools/sdk-middleware-auth'
+import { createHttpMiddleware } from '@commercetools/sdk-middleware-http'
+// import { createRequestBuilder } from '@commercetools/api-request-builder'
+import { config } from './config.js'
 
-const authMiddleware = createAuthMiddlewareForClientCredentialsFlow({
-  host: 'https://auth.sphere.io',
-  projectKey: '',
-  credentials: {
-    clientId: '',
-    clientSecret: '',
-  },
-})
+const authMiddleware = createAuthMiddlewareForClientCredentialsFlow(config)
 
 const httpMiddleware = createHttpMiddleware({
   host: 'https://api.sphere.io',
