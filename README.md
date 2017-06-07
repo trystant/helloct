@@ -2,15 +2,22 @@
 
 Simple Node.js based application that fetches customers and products from a commercetools project.
 
+Uses commercetools [nodejs SDK](https://commercetools.github.io/nodejs/sdk/)
+
 # Setup
-First install the latest version of node to your system
-Copy your Client Id, Client Secret and Project Key from the commercetools Admin Center and insert into the config.js file.
+1. Install the latest version of node on your system
+2. Clone this repository
+3. Copy your Client Id, Client Secret and Project Key from the commercetools Admin Center
+4. Insert these strings into the config.js file
 
-Clone this repository and run the following commands
+# Request Builder
+Build custom Uris for your requests
 
+# Gulp
+Gulp runs build and start command for you
 On build code is transpiled by babel from /src to /dist
+On run node runs the index file from /dist
 
-Gulp runs build and start commands 
 
 ```
 $ npm install
