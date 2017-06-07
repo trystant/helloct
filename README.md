@@ -11,15 +11,18 @@ Uses commercetools [nodejs SDK](https://commercetools.github.io/nodejs/sdk/)
 4. Insert these strings into the config.js file
 
 # Request Builder
+
 Insert project-key
+
 Build custom URI's for your requests
 
-# Gulp
+# Build and Start
+
 Gulp runs build and start command for you
 
 On build code is transpiled by babel from /src to /dist
 
-On run node runs the index file from /dist
+On start node runs the index file from /dist
 
 
 ```
