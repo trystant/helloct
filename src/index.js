@@ -17,9 +17,10 @@ const client = createClient({
   ],
 })
 
+//Insert projectKey here and initiate requestBuilder variable
 const requestBuilder = createRequestBuilder({ projectKey: '' })
 
-// Uses request builder helper to build custom uri
+// Use request builder helper to build custom URIs
 const productsUri = requestBuilder.products
       .build()
 
