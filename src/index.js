@@ -2,13 +2,11 @@ import { createClient } from '@commercetools/sdk-client'
 import { createAuthMiddlewareForClientCredentialsFlow } from '@commercetools/sdk-middleware-auth'
 import { createHttpMiddleware } from '@commercetools/sdk-middleware-http'
 import { createRequestBuilder } from '@commercetools/api-request-builder'
-import config  from './../config.js'
+import { config,host }  from './../config.js'
 
 const authMiddleware = createAuthMiddlewareForClientCredentialsFlow(config)
 
-const httpMiddleware = createHttpMiddleware({
-  host: 'https://api.sphere.io',
-})
+const httpMiddleware = createHttpMiddleware(host)
 
 const client = createClient({
   middlewares: [
@@ -17,8 +15,10 @@ const client = createClient({
   ],
 })
 
-//Insert projectKey here and initiate requestBuilder variable
-const requestBuilder = createRequestBuilder({ projectKey: '' })
+// Define requestBuilder variable with project key option
+const requestBuilder = createRequestBuilder({
+  projectKey: config.projectKey
+})
 
 // Use request builder helper to build custom URIs
 const productsUri = requestBuilder.products

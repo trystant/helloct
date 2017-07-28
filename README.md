@@ -9,6 +9,21 @@ Uses commercetools [nodejs SDK](https://commercetools.github.io/nodejs/sdk/)
 2. Clone this repository
 3. Copy your Client Id, Client Secret and Project Key from the commercetools [Admin Center](https://admin.commercetools.com)
 4. Insert these strings into the config.js file
+5. Define your Auth and http hosts. Dependent on which datacenter your commercetools project is hosted on.
+
+```
+EU
+Auth Host
+https://auth.sphere.io
+http Host
+https://api.sphere.io
+
+US
+Auth Host
+https://auth.commercetools.co
+http
+https://api.commercetools.co
+```
 
 # Request Builder
 

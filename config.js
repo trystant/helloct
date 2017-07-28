@@ -1,11 +1,16 @@
 'use strict';
 
 const config = {
-  host: 'https://auth.sphere.io',
+  host: '',
   projectKey: '',
   credentials: {
     clientId: '',
     clientSecret: '',
   },
 }
-module.exports = config;
+
+const host = {
+  host: '',
+  }
+
+module.exports = {config, host};
