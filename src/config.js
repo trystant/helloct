@@ -1,16 +1,16 @@
 'use strict';
 
 const config = {
-  host: '',
-  projectKey: '',
+  host: 'https://auth.sphere.io',
+  projectKey: 'down-under',
   credentials: {
-    clientId: '',
-    clientSecret: '',
+    clientId: 'mKPAWp0Yy2-CMnXTGCykFbqr',
+    clientSecret: 'DjItbv4ZQvMiSQG5PqWOQCL9uTGh4pSZ',
   },
 }
 
 const host = {
-  host: '',
+  host: 'https://api.sphere.io',
   }
 
 module.exports = {config, host};

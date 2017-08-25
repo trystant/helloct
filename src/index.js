@@ -3,6 +3,7 @@ import { createAuthMiddlewareForClientCredentialsFlow } from '@commercetools/sdk
 import { createHttpMiddleware } from '@commercetools/sdk-middleware-http'
 import { createRequestBuilder } from '@commercetools/api-request-builder'
 import { config,host }  from './config.js'
+import "babel-polyfill";
 
 const authMiddleware = createAuthMiddlewareForClientCredentialsFlow(config)
 
@@ -45,17 +46,42 @@ const requestChannels = {
   method: 'GET'
 }
 
-const p1 = client.execute(requestCustomers)
-const p2 = client.execute(requestProducts)
-const p3 = client.execute(requestChannels)
+const getAllChannels = async() => {
+  let channels = '';
+  channels = await client.execute(requestChannels)
+    .then(response => response.body.results)
+    return channels
+}
 
-//Executes all the requests and returns promises containing all the responses
-Promise.all([p1,p2,p3])
-       .then((responses) => {
-         responses.forEach((response) => {
-          console.log(response.body.results)
-        });
-       })
-       .catch((reason) => {
-         console.log(reason)
-       })
+const getAllCustomers = async() => {
+  let customers = '';
+  customers = await client.execute(requestCustomers)
+   .then(response => response.body.results)
+  return customers
+}
+
+const getAllProducts = async() => {
+  let products = '';
+  products = await client.execute(requestProducts)
+    .then(response => response.body.results)
+  return products
+}
+
+getAllChannels();
+getAllCustomers();
+getAllProducts();
+
+// const p1 = client.execute(requestCustomers)
+// const p2 = client.execute(requestProducts)
+// const p3 = client.execute(requestChannels)
+//
+// //Executes all the requests and returns promises containing all the responses
+// Promise.all([p1,p2,p3])
+//        .then((responses) => {
+//          responses.forEach((response) => {
+//           console.log(response.body.results)
+//         });
+//        })
+//        .catch((reason) => {
+//          console.log(reason)
+//        })
