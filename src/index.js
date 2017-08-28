@@ -3,7 +3,7 @@ import { createAuthMiddlewareForClientCredentialsFlow } from '@commercetools/sdk
 import { createHttpMiddleware } from '@commercetools/sdk-middleware-http'
 import { createRequestBuilder } from '@commercetools/api-request-builder'
 import { config,host }  from './config.js'
-import "babel-polyfil";
+import "babel-polyfill";
 
 const authMiddleware = createAuthMiddlewareForClientCredentialsFlow(config)
 
@@ -68,23 +68,11 @@ const getAllProducts = async() => {
 }
 
 getAllChannels()
-  .then((channels) => {
-    console.log("Channels:",channels);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+  .then((channels) => console.log("Channels:", channels))
+  .catch(err => console.log(err));
 getAllCustomers()
-  .then((customers) => {
-    console.log("Customers:", customers);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+  .then((customers) => console.log("Customers:", customers))
+  .catch(err => console.log(err));
 getAllProducts()
-  .then((products) => {
-    console.log("Products:", products)
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+  .then((products) => console.log("Products:", products))
+  .catch(err => console.log(err));
