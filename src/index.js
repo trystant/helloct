@@ -46,17 +46,45 @@ const requestChannels = {
   method: 'GET'
 }
 
-const p1 = client.execute(requestCustomers)
-const p2 = client.execute(requestProducts)
-const p3 = client.execute(requestChannels)
+const getAllChannels = async() => {
+  let channels = '';
+  channels = await client.execute(requestChannels)
+    .then(response => response.body.results)
+    return channels
+}
 
-//Executes all the requests and returns promises containing all the responses
-Promise.all([p1,p2,p3])
-       .then((responses) => {
-         responses.forEach((response) => {
-          console.log(response.body.results)
-        });
-       })
-       .catch((reason) => {
-         console.log(reason)
-       })
+const getAllCustomers = async() => {
+  let customers = '';
+  customers = await client.execute(requestCustomers)
+   .then(response => response.body.results)
+  return customers
+}
+
+const getAllProducts = async() => {
+  let products = '';
+  products = await client.execute(requestProducts)
+    .then(response => response.body.results)
+  return products
+}
+
+getAllChannels()
+  .then((channels) => {
+    console.log("Channels:",channels);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+getAllCustomers()
+  .then((customers) => {
+    console.log("Customers:", customers);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+getAllProducts()
+  .then((products) => {
+    console.log("Products:", products)
+  })
+  .catch((error) => {
+    console.log(error);
+  });
