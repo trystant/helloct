@@ -67,9 +67,27 @@ const getAllProducts = async() => {
   return products
 }
 
-getAllChannels();
-getAllCustomers();
-getAllProducts();
+getAllChannels()
+  .then((channels) => {
+    console.log("Channels:",channels);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+getAllCustomers()
+  .then((customers) => {
+    console.log("Customers:", customers);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+getAllProducts()
+  .then((products) => {
+    console.log("Products:", products)
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 // const p1 = client.execute(requestCustomers)
 // const p2 = client.execute(requestProducts)
